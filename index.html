@@ -3,306 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Check-in A350 + Roblox</title>
+    <title>Sistema Check-in A350</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #0c2461, #1e3799);
-            color: #fff;
+            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            color: white;
             min-height: 100vh;
             padding: 20px;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
         }
         
         .header h1 {
-            font-size: 2.8rem;
+            color: #00e676;
+            font-size: 2.5rem;
             margin-bottom: 10px;
-            color: #00b894;
-            text-shadow: 0 2px 10px rgba(0, 184, 148, 0.5);
-        }
-        
-        .header p {
-            color: #ddd;
-            font-size: 1.1rem;
-        }
-        
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
         }
         
         .panel {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .panel h2 {
-            color: #00b894;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        h2 {
+            color: #00e676;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 230, 118, 0.3);
         }
         
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .input-group label {
+        label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #ddd;
-            font-weight: 500;
         }
         
-        .input-group input {
+        input {
             width: 100%;
-            padding: 15px;
-            border: 2px solid rgba(0, 184, 148, 0.3);
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid rgba(0, 230, 118, 0.3);
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
+            font-size: 16px;
         }
         
-        .input-group input:focus {
+        input:focus {
             outline: none;
-            border-color: #00b894;
-            box-shadow: 0 0 15px rgba(0, 184, 148, 0.4);
+            border-color: #00e676;
+            box-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
         }
         
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(135deg, #00b894, #00a085);
+            background: #00e676;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
             width: 100%;
             margin-top: 10px;
+            transition: all 0.3s;
         }
         
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 184, 148, 0.4);
+            background: #00c853;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 230, 118, 0.4);
         }
         
-        .btn-secondary {
-            background: linear-gradient(135deg, #0984e3, #0770c4);
+        .btn-roblox {
+            background: #ff4081;
         }
         
-        .btn-secondary:hover {
-            box-shadow: 0 10px 20px rgba(9, 132, 227, 0.4);
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, #d63031, #c0392b);
-        }
-        
-        .btn-danger:hover {
-            box-shadow: 0 10px 20px rgba(214, 48, 49, 0.4);
+        .btn-roblox:hover {
+            background: #f50057;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
         }
         
         .boarding-pass {
             background: white;
             color: #333;
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 10px;
+            padding: 20px;
             margin-top: 20px;
             display: none;
-            animation: fadeIn 0.5s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 3px solid #00e676;
         }
         
-        .boarding-pass.active {
-            display: block;
-        }
-        
-        .boarding-pass-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px dashed #ddd;
-        }
-        
-        .boarding-pass-header h3 {
-            color: #0c2461;
-            font-size: 1.8rem;
-        }
-        
-        .airline {
-            font-size: 1.5rem;
+        .seat {
+            font-size: 3rem;
             font-weight: bold;
-            color: #00b894;
+            color: #1a237e;
+            text-align: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 8px;
         }
         
         .passenger-info {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        
-        .info-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .info-label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        
-        .info-value {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #0c2461;
-        }
-        
-        .seat-display {
-            text-align: center;
-            background: linear-gradient(135deg, #0c2461, #1e3799);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .seat-display .label {
-            font-size: 1rem;
-            color: #ddd;
-        }
-        
-        .seat-display .seat {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-        
-        .chat-container {
-            height: 400px;
-            overflow-y: auto;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 20px;
+            gap: 15px;
             margin-bottom: 20px;
         }
         
-        .chat-message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            max-width: 80%;
+        .info-item {
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
         }
         
-        .chat-message.system {
-            background: rgba(0, 184, 148, 0.2);
-            border-left: 4px solid #00b894;
+        .info-label {
+            font-size: 12px;
+            color: #666;
         }
         
-        .chat-message.passenger {
-            background: rgba(9, 132, 227, 0.2);
-            border-left: 4px solid #0984e3;
-            margin-left: auto;
-        }
-        
-        .chat-message.admin {
-            background: rgba(214, 48, 49, 0.2);
-            border-left: 4px solid #d63031;
-        }
-        
-        .message-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            font-size: 0.9rem;
-            color: #ddd;
-        }
-        
-        .message-sender {
+        .info-value {
+            font-size: 18px;
             font-weight: bold;
+            color: #1a237e;
         }
         
-        .message-time {
-            opacity: 0.7;
+        .chat-box {
+            height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
         }
         
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 500;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            animation: slideIn 0.3s ease;
+        .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border-left: 3px solid #00e676;
+        }
+        
+        .message.system {
+            border-left-color: #00e676;
+            background: rgba(0, 230, 118, 0.1);
+        }
+        
+        .message.passenger {
+            border-left-color: #2196f3;
+            background: rgba(33, 150, 243, 0.1);
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
             display: none;
         }
         
-        .notification.success {
-            background: linear-gradient(135deg, #00b894, #00a085);
+        .status.success {
+            background: rgba(0, 230, 118, 0.2);
+            border: 1px solid #00e676;
+            display: block;
         }
         
-        .notification.error {
-            background: linear-gradient(135deg, #d63031, #c0392b);
+        .status.error {
+            background: rgba(255, 64, 129, 0.2);
+            border: 1px solid #ff4081;
+            display: block;
         }
         
-        .notification.info {
-            background: linear-gradient(135deg, #0984e3, #0770c4);
+        .status.info {
+            background: rgba(33, 150, 243, 0.2);
+            border: 1px solid #2196f3;
+            display: block;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .controls .btn {
+            flex: 1;
         }
         
         .flight-info {
             display: flex;
             justify-content: space-around;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
             padding: 15px;
+            border-radius: 8px;
             margin-top: 20px;
         }
         
@@ -313,23 +233,12 @@
         .flight-item .value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #00b894;
+            color: #00e676;
         }
         
         .flight-item .label {
             font-size: 0.9rem;
             color: #ddd;
-            margin-top: 5px;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
         }
         
         .pulse {
@@ -341,104 +250,20 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-        
-        .admin-panel {
-            background: rgba(214, 48, 49, 0.1);
-            border: 2px solid rgba(214, 48, 49, 0.3);
-        }
-        
-        .codes-list {
-            max-height: 300px;
-            overflow-y: auto;
-            margin-top: 20px;
-        }
-        
-        .code-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        
-        .code-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .code-info {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .code-value {
-            font-weight: bold;
-            color: #00b894;
-        }
-        
-        .code-passenger {
-            font-size: 0.9rem;
-            color: #ddd;
-        }
-        
-        .test-buttons {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .test-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .test-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-        
-        .status-indicator {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
-        
-        .status-active {
-            background-color: #00b894;
-        }
-        
-        .status-inactive {
-            background-color: #d63031;
-        }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-plane"></i> Sistema Check-in A350 + Roblox</h1>
-            <p>Check-in virtual para seu voo + Acesso ao servidor Roblox</p>
+            <h1>✈️ Sistema Check-in A350</h1>
+            <p>Check-in para voo + Acesso ao Roblox</p>
             <div class="flight-info">
                 <div class="flight-item">
-                    <div class="value">A350-900</div>
+                    <div class="value">A350</div>
                     <div class="label">Aeronave</div>
                 </div>
                 <div class="flight-item">
-                    <div class="value">VOO 350</div>
-                    <div class="label">Número do Voo</div>
-                </div>
-                <div class="flight-item">
-                    <div class="value">GRU → JFK</div>
+                    <div class="value">GRU→JFK</div>
                     <div class="label">Rota</div>
                 </div>
                 <div class="flight-item">
@@ -448,729 +273,474 @@
             </div>
         </div>
         
-        <div class="main-content">
-            <!-- Painel de Check-in -->
+        <div class="grid">
+            <!-- CHECK-IN -->
             <div class="panel">
-                <h2><i class="fas fa-ticket-alt"></i> Check-in do Passageiro</h2>
+                <h2>🎫 Check-in do Passageiro</h2>
                 <div class="input-group">
-                    <label for="checkin-code">Código de Reserva</label>
-                    <input type="text" id="checkin-code" placeholder="Digite seu código (ex: CHK-001)" autocomplete="off">
+                    <label for="code">Código da Reserva</label>
+                    <input type="text" id="code" placeholder="Ex: CHK-001" autocomplete="off">
                 </div>
-                <button class="btn" onclick="verifyCheckinCode()">
-                    <i class="fas fa-check-circle"></i> Verificar Check-in
-                </button>
                 
-                <div id="connection-status" style="margin-top: 15px; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.05); display: none;">
-                    <span class="status-indicator" id="status-dot"></span>
-                    <span id="status-text">Conectando à planilha...</span>
-                </div>
+                <button class="btn" onclick="fazerCheckin()">✅ Fazer Check-in</button>
+                
+                <div id="status" class="status"></div>
                 
                 <!-- Cartão de Embarque -->
                 <div class="boarding-pass" id="boarding-pass">
-                    <div class="boarding-pass-header">
-                        <h3>CARTÃO DE EMBARQUE</h3>
-                        <div class="airline">A350 AIRLINES</div>
-                    </div>
+                    <h3 style="color: #1a237e; text-align: center;">CARTÃO DE EMBARQUE</h3>
                     
                     <div class="passenger-info">
                         <div class="info-item">
-                            <span class="info-label">PASSAGEIRO</span>
-                            <span class="info-value" id="passenger-name">-</span>
+                            <div class="info-label">PASSAGEIRO</div>
+                            <div class="info-value" id="pass-name">-</div>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">VOO</span>
-                            <span class="info-value">A350</span>
+                            <div class="info-label">CÓDIGO</div>
+                            <div class="info-value" id="pass-code">-</div>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">CÓDIGO</span>
-                            <span class="info-value" id="reservation-code">-</span>
+                            <div class="info-label">DATA</div>
+                            <div class="info-value" id="pass-date">-</div>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">DATA</span>
-                            <span class="info-value" id="flight-date">-</span>
+                            <div class="info-label">VOO</div>
+                            <div class="info-value">A350</div>
                         </div>
                     </div>
                     
-                    <div class="seat-display">
-                        <div class="label">SUA POLTRONA</div>
-                        <div class="seat" id="seat-number">-</div>
-                        <div class="label">BOARDING GROUP 1</div>
-                    </div>
+                    <div class="seat" id="pass-seat">-</div>
                     
-                    <div class="flight-info">
-                        <div class="flight-item">
-                            <div class="value" id="departure-code">GRU</div>
-                            <div class="label">ORIGEM</div>
-                        </div>
-                        <div class="flight-item">
-                            <div class="value"><i class="fas fa-plane"></i></div>
-                            <div class="label">VOO DIRETO</div>
-                        </div>
-                        <div class="flight-item">
-                            <div class="value" id="arrival-code">JFK</div>
-                            <div class="label">DESTINO</div>
-                        </div>
+                    <div style="text-align: center; color: #666; font-size: 14px;">
+                        BOARDING GROUP 1 • EMBARQUE IMEDIATO
                     </div>
+                </div>
+                
+                <div class="controls">
+                    <button class="btn" onclick="verReservas()" style="background: #2196f3;">
+                        📋 Ver Reservas
+                    </button>
+                    <button class="btn" onclick="recarregar()" style="background: #ff9800;">
+                        🔄 Atualizar
+                    </button>
                 </div>
             </div>
             
-            <!-- Painel do Roblox -->
+            <!-- ROBLOX E CHAT -->
             <div class="panel">
-                <h2><i class="fas fa-gamepad"></i> Acesso Roblox</h2>
-                <p style="margin-bottom: 20px; color: #ddd; line-height: 1.5;">
-                    Após o check-in, clique no botão abaixo para acessar o servidor privado do Roblox onde ocorrerá a experiência do voo.
-                </p>
+                <h2>🎮 Acesso Roblox</h2>
+                <div class="input-group">
+                    <label for="roblox-link">Link do Servidor Roblox</label>
+                    <input type="text" id="roblox-link" placeholder="Cole o link aqui">
+                </div>
                 
-                <a id="roblox-link" class="btn btn-secondary" href="#" target="_blank" style="margin-bottom: 20px;">
-                    <i class="fas fa-external-link-alt"></i> Configurar servidor primeiro
-                </a>
+                <button class="btn btn-roblox" onclick="atualizarRoblox()">
+                    🔄 Atualizar Link
+                </button>
                 
-                <div class="chat-container" id="chat-container">
-                    <!-- Mensagens do chat serão inseridas aqui -->
+                <button class="btn btn-roblox pulse" id="btn-entrar" onclick="entrarRoblox()" disabled>
+                    🎮 Entrar no Roblox
+                </button>
+                
+                <h2 style="margin-top: 25px;">💬 Chat</h2>
+                <div class="chat-box" id="chat-box">
+                    <!-- Mensagens aparecem aqui -->
                 </div>
                 
                 <div class="input-group">
-                    <label for="chat-message">Mensagem para a tripulação</label>
-                    <input type="text" id="chat-message" placeholder="Digite sua mensagem...">
+                    <input type="text" id="chat-input" placeholder="Digite sua mensagem..." onkeypress="if(event.key=='Enter') enviarMsg()">
                 </div>
-                <button class="btn btn-secondary" onclick="sendChatMessage()">
-                    <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                <button class="btn" onclick="enviarMsg()" style="background: #2196f3;">
+                    📤 Enviar Mensagem
                 </button>
-            </div>
-            
-            <!-- Painel de Administração -->
-            <div class="panel admin-panel">
-                <h2><i class="fas fa-cogs"></i> Painel de Controle</h2>
-                <div class="input-group">
-                    <label for="roblox-url">URL do Servidor Roblox</label>
-                    <input type="text" id="roblox-url" placeholder="Cole o novo link do Roblox aqui">
-                </div>
-                <button class="btn btn-danger" onclick="updateRobloxLink()">
-                    <i class="fas fa-sync-alt"></i> Atualizar Link do Roblox
-                </button>
-                
-                <button class="btn" onclick="showReservations()" style="margin-top: 10px;">
-                    <i class="fas fa-list"></i> Ver Reservas da Planilha
-                </button>
-                
-                <button class="btn" onclick="loadFromSpreadsheet()" style="margin-top: 10px;">
-                    <i class="fas fa-redo"></i> Recarregar Planilha
-                </button>
-                
-                <div class="codes-list" id="codes-list" style="display: none;">
-                    <!-- Lista de códigos será inserida aqui -->
-                </div>
-                
-                <div id="sheet-stats" style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; display: none;">
-                    <h3 style="color: #00b894; margin-bottom: 10px;">Estatísticas da Planilha</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-                        <div>
-                            <div style="font-size: 2rem; color: #00b894;" id="total-reservations">0</div>
-                            <div style="font-size: 0.9rem; color: #ddd;">Total Reservas</div>
-                        </div>
-                        <div>
-                            <div style="font-size: 2rem; color: #0984e3;" id="active-reservations">0</div>
-                            <div style="font-size: 0.9rem; color: #ddd;">Reservas Ativas</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         
-        <!-- Botões de Teste -->
-        <div class="test-buttons">
-            <button class="test-btn" onclick="testSystem()">
-                <i class="fas fa-vial"></i> Testar Sistema
-            </button>
-            <button class="test-btn" onclick="showInstructions()">
-                <i class="fas fa-info-circle"></i> Instruções
-            </button>
-            <button class="test-btn" onclick="showCurrentLink()">
-                <i class="fas fa-link"></i> Ver Link
-            </button>
-            <button class="test-btn" onclick="debugSheet()">
-                <i class="fas fa-bug"></i> Debug Planilha
-            </button>
-            <button class="test-btn" onclick="clearData()">
-                <i class="fas fa-trash"></i> Limpar Dados
-            </button>
+        <!-- LISTA DE RESERVAS -->
+        <div class="panel" id="reservas-panel" style="display: none;">
+            <h2>📋 Reservas da Planilha</h2>
+            <div id="reservas-list"></div>
         </div>
     </div>
-    
-    <div class="notification" id="notification"></div>
 
     <script>
         // ============================================
-        // CONFIGURAÇÃO COM SEU ID DE PLANILHA
+        // 🔧 CONFIGURAÇÃO
         // ============================================
-        
-        // ✅ SEU ID DE PLANILHA JÁ INSERIDO
-        const SPREADSHEET_ID = "1r0juk1Cr4tJY3t_R_ZBIkali5MYn1GYgMsxUnO88y10";
-        
-        // URL da API pública do Google Sheets
-        const SHEETS_API_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json`;
-        
-        // Armazena todas as reservas
-        let allReservations = [];
-        let robloxServerLink = localStorage.getItem('robloxServerLink') || "";
+        const PLANILHA_ID = "1r0juk1Cr4tJY3t_R_ZBIkali5MYn1GYgMsxUnO88y10";
+        let reservas = [];
+        let linkRoblox = localStorage.getItem("robloxLink") || "";
         
         // ============================================
-        // INICIALIZAÇÃO DO SISTEMA
+        // 🚀 INICIALIZAÇÃO
         // ============================================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log("✈️ Sistema A350 iniciando...");
-            console.log("📊 Planilha ID:", SPREADSHEET_ID);
-            
-            // Mostra status de conexão
-            updateConnectionStatus("Conectando à sua planilha...", "connecting");
+            console.log("🛫 Sistema iniciando...");
+            console.log("📊 Conectando à planilha:", PLANILHA_ID);
             
             // Carrega dados da planilha
-            loadFromSpreadsheet();
-            
-            // Configura eventos
-            setupEventListeners();
+            carregarPlanilha();
             
             // Configura link do Roblox se existir
-            if (robloxServerLink) {
-                document.getElementById('roblox-url').value = robloxServerLink;
-                updateRobloxButton();
+            if (linkRoblox) {
+                document.getElementById('roblox-link').value = linkRoblox;
+                ativarBotaoRoblox();
             }
             
-            // Adiciona mensagem inicial no chat
-            setTimeout(() => {
-                addChatMessage("Sistema A350", 
-                    "✅ Sistema conectado à sua planilha. Digite seu código de reserva para check-in.", 
-                    "system");
-            }, 1000);
+            // Mensagem inicial no chat
+            adicionarMensagem("Sistema", "Bem-vindo ao check-in do voo A350! Digite seu código.", "system");
+            
+            // Configura eventos
+            document.getElementById('code').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') fazerCheckin();
+            });
         });
         
         // ============================================
-        // FUNÇÃO PRINCIPAL - CARREGAR DA PLANILHA
+        // 📊 CARREGAR PLANILHA
         // ============================================
-        async function loadFromSpreadsheet() {
+        async function carregarPlanilha() {
+            mostrarStatus("🔄 Conectando à sua planilha...", "info");
+            
             try {
-                updateConnectionStatus("Conectando à planilha...", "connecting");
+                const url = `https://docs.google.com/spreadsheets/d/${PLANILHA_ID}/gviz/tq?tqx=out:json`;
+                const resposta = await fetch(url);
+                const texto = await resposta.text();
                 
-                const response = await fetch(SHEETS_API_URL);
-                
-                if (!response.ok) {
-                    throw new Error(`Erro HTTP: ${response.status}`);
+                // Extrai dados JSON da resposta do Google
+                const jsonMatch = texto.match(/google\.visualization\.Query\.setResponse\((.+)\)/);
+                if (!jsonMatch) {
+                    throw new Error("Formato inválido da planilha");
                 }
                 
-                const text = await response.text();
+                const dados = JSON.parse(jsonMatch[1]);
+                processarDados(dados);
                 
-                // Remove o prefixo do Google
-                const jsonText = text.match(/google\.visualization\.Query\.setResponse\((.+)\)/);
-                if (!jsonText) {
-                    throw new Error("Formato de resposta inválido");
-                }
+                mostrarStatus(`✅ ${reservas.length} reservas carregadas!`, "success");
+                adicionarMensagem("Sistema", `Planilha carregada: ${reservas.length} reservas`, "system");
                 
-                const data = JSON.parse(jsonText[1]);
-                
-                // Processa os dados
-                processSheetData(data);
-                
-                updateConnectionStatus(`✅ ${allReservations.length} reservas carregadas`, "connected");
-                
-                // Atualiza estatísticas
-                updateStatistics();
-                
-                // Tenta carregar link do Roblox da aba Config
-                loadRobloxLinkFromConfig();
-                
-            } catch (error) {
-                console.error("❌ Erro ao carregar planilha:", error);
-                updateConnectionStatus("❌ Erro ao conectar com a planilha", "error");
-                
-                // Usa dados de exemplo
-                allReservations = getSampleData();
-                showNotification("⚠️ Usando dados de exemplo", "error");
-                updateStatistics();
+            } catch (erro) {
+                console.error("Erro:", erro);
+                mostrarStatus("❌ Erro ao carregar planilha. Usando dados de teste.", "error");
+                usarDadosTeste();
             }
         }
         
         // ============================================
-        // PROCESSAR DADOS DA PLANILHA
+        // 🎯 PROCESSAR DADOS (4 COLUNAS)
         // ============================================
-        function processSheetData(data) {
-            allReservations = [];
+        function processarDados(dados) {
+            reservas = [];
             
-            if (!data.table || !data.table.rows) {
-                console.warn("Nenhum dado encontrado na planilha");
+            if (!dados.table || !dados.table.rows) {
+                console.warn("Planilha vazia ou sem dados");
                 return;
             }
             
-            const rows = data.table.rows;
+            // SUA PLANILHA TEM 4 COLUNAS:
+            // Coluna 0: Código
+            // Coluna 1: Nome
+            // Coluna 2: Poltrona
+            // Coluna 3: Status (ou Data se for a 4ª coluna)
             
-            // Pega os cabeçalhos da primeira linha
-            const headers = rows[0]?.c?.map(cell => cell?.v?.toString().toLowerCase() || "") || [];
+            const linhas = dados.table.rows;
             
-            console.log("📋 Cabeçalhos encontrados:", headers);
-            
-            // Processa cada linha (começando da segunda)
-            for (let i = 1; i < rows.length; i++) {
-                const row = rows[i];
-                if (!row.c) continue;
+            // Pula a primeira linha (cabeçalho)
+            for (let i = 1; i < linhas.length; i++) {
+                const linha = linhas[i];
+                if (!linha.c || linha.c.length < 3) continue; // Pelo menos 3 colunas
                 
-                // Cria objeto de reserva baseado nos cabeçalhos
-                const reservation = {};
+                const codigo = linha.c[0]?.v || "";
+                const nome = linha.c[1]?.v || "";
+                const poltrona = linha.c[2]?.v || "";
+                const status = linha.c[3]?.v || "ativo"; // 4ª coluna ou padrão
                 
-                headers.forEach((header, index) => {
-                    if (row.c[index] && row.c[index].v !== null) {
-                        const value = row.c[index].v;
-                        reservation[header] = value.toString().trim();
-                    }
-                });
-                
-                // Verifica se tem código (campo obrigatório)
-                if (reservation.codigo || reservation.código || reservation.code) {
-                    // Normaliza campos
-                    const normalizedReservation = {
-                        code: reservation.codigo || reservation.código || reservation.code || "",
-                        name: reservation.nome || reservation.name || "",
-                        seat: reservation.poltrona || reservation.seat || reservation.assento || "",
-                        email: reservation.email || reservation.e_mail || "",
-                        date: reservation.data || reservation.date || "",
-                        status: reservation.status || reservation.estado || "ativo",
-                        checkin: reservation.checkin || reservation.check_in || ""
-                    };
-                    
-                    allReservations.push(normalizedReservation);
+                // Se tiver código, adiciona à lista
+                if (codigo && codigo.toString().trim() !== "") {
+                    reservas.push({
+                        codigo: codigo.toString().trim(),
+                        nome: nome.toString().trim(),
+                        poltrona: poltrona.toString().trim(),
+                        status: status.toString().trim().toLowerCase()
+                    });
                 }
             }
             
-            console.log(`✅ Processadas ${allReservations.length} reservas`);
+            console.log("Reservas processadas:", reservas);
         }
         
         // ============================================
-        // VERIFICAR CÓDIGO DE CHECK-IN
+        // ✅ FAZER CHECK-IN
         // ============================================
-        async function verifyCheckinCode() {
-            const codeInput = document.getElementById('checkin-code');
-            const code = codeInput.value.trim().toUpperCase();
+        function fazerCheckin() {
+            const input = document.getElementById('code');
+            const codigo = input.value.trim().toUpperCase();
             
-            if (!code) {
-                showNotification("Digite um código de reserva", "error");
+            if (!codigo) {
+                mostrarStatus("⚠️ Digite um código!", "error");
                 return;
             }
             
-            // Verifica se temos dados
-            if (allReservations.length === 0) {
-                showNotification("Carregando dados da planilha...", "info");
-                await loadFromSpreadsheet();
+            if (reservas.length === 0) {
+                mostrarStatus("📥 Carregando dados...", "info");
+                carregarPlanilha();
+                setTimeout(fazerCheckin, 1500);
+                return;
             }
             
-            // Procura o código (case insensitive)
-            const reservation = allReservations.find(r => 
-                r.code.toUpperCase() === code.toUpperCase()
+            // Busca o código (case insensitive)
+            const reserva = reservas.find(r => 
+                r.codigo.toUpperCase() === codigo
             );
             
-            if (!reservation) {
-                showNotification("❌ Código não encontrado na planilha", "error");
-                addChatMessage("Sistema", `Tentativa com código inválido: ${code}`, "admin");
+            if (!reserva) {
+                mostrarStatus(`❌ Código "${codigo}" não encontrado`, "error");
+                adicionarMensagem("Sistema", `Tentativa com código inválido: ${codigo}`, "system");
                 return;
             }
             
             // Verifica status
-            if (reservation.status && reservation.status.toLowerCase() !== 'ativo') {
-                showNotification(`❌ Reserva ${reservation.status}`, "error");
+            if (reserva.status !== "ativo") {
+                mostrarStatus(`❌ Reserva ${reserva.status}!`, "error");
                 return;
             }
             
-            // Exibe cartão de embarque
-            displayBoardingPass(reservation);
-            
-            // Registra no chat
-            addChatMessage(reservation.name, 
-                `✅ Check-in realizado! Poltrona ${reservation.seat}.`, 
-                "passenger");
-            
-            showNotification(`✅ ${reservation.name} - Poltrona ${reservation.seat}`, "success");
+            // SUCESSO! Mostra cartão de embarque
+            mostrarCartaoEmbarque(reserva);
             
             // Limpa campo
-            codeInput.value = "";
+            input.value = "";
             
-            // Tenta registrar check-in (se tiver Apps Script configurado)
-            registerCheckin(code);
+            // Atualiza chat
+            adicionarMensagem(reserva.nome, `Check-in realizado! Poltrona ${reserva.poltrona} 🎉`, "passenger");
+            
+            // Mostra sucesso
+            mostrarStatus(`✅ ${reserva.nome} - Poltrona ${reserva.poltrona}`, "success");
         }
         
         // ============================================
-        // EXIBIR CARTÃO DE EMBARQUE
+        // 🎫 MOSTRAR CARTÃO DE EMBARQUE
         // ============================================
-        function displayBoardingPass(reservation) {
-            const boardingPass = document.getElementById('boarding-pass');
+        function mostrarCartaoEmbarque(reserva) {
+            const cartao = document.getElementById('boarding-pass');
             
-            document.getElementById('passenger-name').textContent = reservation.name || "Não informado";
-            document.getElementById('reservation-code').textContent = reservation.code;
-            document.getElementById('flight-date').textContent = reservation.date || new Date().toLocaleDateString('pt-BR');
-            document.getElementById('seat-number').textContent = reservation.seat || "A definir";
+            // Preenche dados
+            document.getElementById('pass-name').textContent = reserva.nome;
+            document.getElementById('pass-code').textContent = reserva.codigo;
+            document.getElementById('pass-seat').textContent = reserva.poltrona;
+            document.getElementById('pass-date').textContent = new Date().toLocaleDateString('pt-BR');
             
-            boardingPass.classList.add('active');
+            // Mostra cartão
+            cartao.style.display = 'block';
             
-            // Animação suave
+            // Animação
+            cartao.style.animation = 'none';
             setTimeout(() => {
-                boardingPass.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+                cartao.style.animation = 'pulse 0.5s';
+            }, 10);
+            
+            // Rola para o cartão
+            setTimeout(() => {
+                cartao.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
         }
         
         // ============================================
-        // FUNÇÕES DO ROBLOX
+        // 🎮 ROBLOX
         // ============================================
-        function updateRobloxLink() {
-            const urlInput = document.getElementById('roblox-url');
-            const newLink = urlInput.value.trim();
+        function atualizarRoblox() {
+            const input = document.getElementById('roblox-link');
+            const novoLink = input.value.trim();
             
-            if (!newLink) {
-                showNotification("Digite um link válido", "error");
+            if (!novoLink) {
+                mostrarStatus("⚠️ Digite um link!", "error");
                 return;
             }
             
-            if (!newLink.includes("roblox.com")) {
-                showNotification("O link deve ser do Roblox", "error");
+            if (!novoLink.includes("roblox.com")) {
+                mostrarStatus("❌ Link deve ser do Roblox!", "error");
                 return;
             }
             
             // Salva localmente
-            robloxServerLink = newLink;
-            localStorage.setItem('robloxServerLink', newLink);
+            linkRoblox = novoLink;
+            localStorage.setItem("robloxLink", novoLink);
             
-            // Atualiza botão
-            updateRobloxButton();
+            // Ativa botão
+            ativarBotaoRoblox();
+            
+            // Limpa campo
+            input.value = "";
             
             // Mensagens
-            addChatMessage("Comandante", 
-                "🔄 SERVIDOR ATUALIZADO! Novo link do Roblox configurado.", 
-                "admin");
-            
-            showNotification("✅ Link do Roblox atualizado!", "success");
-            
-            // Tenta salvar na planilha
-            saveRobloxLinkToSheet(newLink);
+            mostrarStatus("✅ Link do Roblox atualizado!", "success");
+            adicionarMensagem("Comandante", "🔄 Novo servidor Roblox configurado!", "system");
         }
         
-        function updateRobloxButton() {
-            if (!robloxServerLink) return;
+        function ativarBotaoRoblox() {
+            const botao = document.getElementById('btn-entrar');
+            botao.disabled = false;
+            botao.textContent = "🎮 ENTRAR NO ROBLOX (CLIQUE AQUI)";
+            botao.style.background = "#00e676";
+            botao.classList.add('pulse');
+        }
+        
+        function entrarRoblox() {
+            if (!linkRoblox) {
+                mostrarStatus("⚠️ Configure o link primeiro!", "error");
+                return;
+            }
             
-            const btn = document.getElementById('roblox-link');
-            btn.href = robloxServerLink;
-            btn.innerHTML = '<i class="fas fa-external-link-alt"></i> 🎮 Entrar no Servidor Roblox';
-            btn.classList.add('pulse');
+            // Abre em nova aba
+            window.open(linkRoblox, '_blank');
+            adicionarMensagem("Sistema", "Abrindo servidor Roblox...", "system");
         }
         
         // ============================================
-        // FUNÇÕES AUXILIARES
+        // 💬 CHAT
         // ============================================
-        function setupEventListeners() {
-            // Enter para check-in
-            document.getElementById('checkin-code').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') verifyCheckinCode();
-            });
+        function adicionarMensagem(remetente, texto, tipo) {
+            const chat = document.getElementById('chat-box');
+            const hora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
             
-            // Enter para chat
-            document.getElementById('chat-message').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') sendChatMessage();
-            });
-        }
-        
-        function sendChatMessage() {
-            const input = document.getElementById('chat-message');
-            const message = input.value.trim();
-            
-            if (!message) return;
-            
-            addChatMessage("Passageiro", message, "passenger");
-            
-            // Resposta automática
-            setTimeout(() => {
-                const responses = [
-                    "Recebemos sua mensagem. Em breve um comissário responderá.",
-                    "Obrigado pelo contato. Como podemos ajudar?",
-                    "Mensagem encaminhada para a tripulação."
-                ];
-                const response = responses[Math.floor(Math.random() * responses.length)];
-                addChatMessage("Comissário", response, "system");
-            }, 1000);
-            
-            input.value = "";
-        }
-        
-        function addChatMessage(sender, message, type) {
-            const container = document.getElementById('chat-container');
-            const time = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-            
-            const div = document.createElement('div');
-            div.className = `chat-message ${type}`;
-            div.innerHTML = `
-                <div class="message-header">
-                    <span class="message-sender">${sender}</span>
-                    <span class="message-time">${time}</span>
-                </div>
-                <div class="message-content">${message}</div>
+            const mensagem = document.createElement('div');
+            mensagem.className = `message ${tipo}`;
+            mensagem.innerHTML = `
+                <strong>${remetente}:</strong> ${texto}
+                <span style="float: right; font-size: 12px; color: #aaa;">${hora}</span>
             `;
             
-            container.appendChild(div);
-            container.scrollTop = container.scrollHeight;
+            chat.appendChild(mensagem);
+            chat.scrollTop = chat.scrollHeight;
             
-            // Limita mensagens
-            const messages = container.querySelectorAll('.chat-message');
-            if (messages.length > 20) {
-                messages[0].remove();
+            // Limita a 20 mensagens
+            const mensagens = chat.querySelectorAll('.message');
+            if (mensagens.length > 20) {
+                mensagens[0].remove();
             }
         }
         
-        function showNotification(message, type) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.className = `notification ${type}`;
-            notification.style.display = 'block';
+        function enviarMsg() {
+            const input = document.getElementById('chat-input');
+            const texto = input.value.trim();
             
+            if (!texto) return;
+            
+            adicionarMensagem("Você", texto, "passenger");
+            input.value = "";
+            
+            // Resposta automática (opcional)
             setTimeout(() => {
-                notification.style.display = 'none';
-            }, 4000);
+                const respostas = [
+                    "Mensagem recebida! Um comissário responderá em breve.",
+                    "Obrigado pelo contato!",
+                    "Entendido. Como posso ajudar?"
+                ];
+                const resposta = respostas[Math.floor(Math.random() * respostas.length)];
+                adicionarMensagem("Comissário", resposta, "system");
+            }, 1000);
         }
         
-        function updateConnectionStatus(message, status) {
-            const statusDiv = document.getElementById('connection-status');
-            const dot = document.getElementById('status-dot');
-            const text = document.getElementById('status-text');
+        // ============================================
+        // 📋 FUNÇÕES ADICIONAIS
+        // ============================================
+        function verReservas() {
+            const panel = document.getElementById('reservas-panel');
+            const lista = document.getElementById('reservas-list');
             
-            statusDiv.style.display = 'block';
-            text.textContent = message;
-            
-            dot.className = 'status-indicator';
-            if (status === 'connecting') {
-                dot.classList.add('status-inactive');
-                dot.style.animation = 'pulse 1s infinite';
-            } else if (status === 'connected') {
-                dot.classList.add('status-active');
-                dot.style.animation = 'none';
-            } else if (status === 'error') {
-                dot.classList.add('status-inactive');
-                dot.style.animation = 'none';
-            }
-        }
-        
-        function updateStatistics() {
-            const total = allReservations.length;
-            const active = allReservations.filter(r => 
-                !r.status || r.status.toLowerCase() === 'ativo'
-            ).length;
-            
-            document.getElementById('total-reservations').textContent = total;
-            document.getElementById('active-reservations').textContent = active;
-            document.getElementById('sheet-stats').style.display = 'block';
-        }
-        
-        function showReservations() {
-            const listDiv = document.getElementById('codes-list');
-            
-            if (allReservations.length === 0) {
-                showNotification("Nenhuma reserva carregada", "info");
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
                 return;
             }
             
-            if (listDiv.style.display === 'block') {
-                listDiv.style.display = 'none';
+            if (reservas.length === 0) {
+                lista.innerHTML = "<p style='text-align: center; color: #ddd;'>Nenhuma reserva carregada</p>";
+                panel.style.display = 'block';
                 return;
             }
             
-            let html = `<h3 style="color: #00b894; margin-bottom: 15px;">Reservas da Planilha (${allReservations.length})</h3>`;
+            let html = `<p style='color: #ddd; margin-bottom: 15px;'>Total: ${reservas.length} reservas</p>`;
             
-            allReservations.forEach((res, index) => {
-                const status = res.status ? res.status.toLowerCase() : 'ativo';
-                const statusClass = status === 'ativo' ? 'status-active' : 'status-inactive';
-                const checked = res.checkin ? '✅' : '⏳';
-                
+            reservas.forEach(reserva => {
+                const status = reserva.status === "ativo" ? "🟢" : "🔴";
                 html += `
-                <div class="code-item" onclick="fillCode('${res.code}')" style="cursor: pointer;">
-                    <div class="code-info">
-                        <span class="code-value">${res.code} ${checked}</span>
-                        <span class="code-passenger">
-                            <span class="status-indicator ${statusClass}"></span>
-                            ${res.name} - Poltrona ${res.seat || 'N/D'}
-                        </span>
-                    </div>
-                    <div style="color: #ddd; font-size: 0.9rem;">
-                        ${res.date || ''}
+                <div style="background: rgba(255,255,255,0.05); padding: 10px; margin: 8px 0; border-radius: 5px; border-left: 3px solid ${reserva.status === 'ativo' ? '#00e676' : '#ff4081'};">
+                    ${status} <strong style="color: #00e676;">${reserva.codigo}</strong>
+                    <div style="margin-top: 5px;">
+                        👤 ${reserva.nome} | 💺 ${reserva.poltrona || "N/D"}
                     </div>
                 </div>`;
             });
             
-            listDiv.innerHTML = html;
-            listDiv.style.display = 'block';
-        }
-        
-        function fillCode(code) {
-            document.getElementById('checkin-code').value = code;
-            showNotification(`Código ${code} preenchido`, "info");
-        }
-        
-        // ============================================
-        // FUNÇÕES PARA A PLANILHA
-        // ============================================
-        async function loadRobloxLinkFromConfig() {
-            try {
-                const configUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?sheet=Config&tqx=out:json`;
-                const response = await fetch(configUrl);
-                
-                if (response.ok) {
-                    const text = await response.text();
-                    const jsonText = text.match(/google\.visualization\.Query\.setResponse\((.+)\)/);
-                    
-                    if (jsonText) {
-                        const data = JSON.parse(jsonText[1]);
-                        if (data.table?.rows?.length > 0) {
-                            const cell = data.table.rows[0].c;
-                            if (cell && cell[0] && cell[0].v) {
-                                robloxServerLink = cell[0].v;
-                                localStorage.setItem('robloxServerLink', robloxServerLink);
-                                document.getElementById('roblox-url').value = robloxServerLink;
-                                updateRobloxButton();
-                            }
-                        }
-                    }
-                }
-            } catch (error) {
-                console.log("Nenhuma aba Config encontrada");
-            }
-        }
-        
-        async function saveRobloxLinkToSheet(link) {
-            // Para salvar na planilha, você precisaria de um Google Apps Script
-            console.log("Link para salvar na planilha:", link);
-            showNotification("Configure um Google Apps Script para salvar na planilha", "info");
-        }
-        
-        async function registerCheckin(code) {
-            // Para registrar check-in na planilha
-            console.log("Check-in registrado para:", code);
-            // Implemente com Google Apps Script se necessário
-        }
-        
-        // ============================================
-        // FUNÇÕES DE TESTE E DEBUG
-        // ============================================
-        function testSystem() {
-            if (allReservations.length > 0) {
-                const testCode = allReservations[0].code;
-                document.getElementById('checkin-code').value = testCode;
-                setTimeout(verifyCheckinCode, 500);
-            } else {
-                document.getElementById('checkin-code').value = "CHK-001";
-                setTimeout(verifyCheckinCode, 500);
-            }
+            lista.innerHTML = html;
+            panel.style.display = 'block';
             
-            addChatMessage("Sistema", "Teste do sistema realizado", "system");
+            // Rola para a lista
+            setTimeout(() => {
+                panel.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
         
-        function showInstructions() {
-            const msg = `
-🎮 INSTRUÇÕES:
-
-1️⃣ CHECK-IN:
-   • Digite o código da reserva
-   • Clique em "Verificar Check-in"
-
-2️⃣ ROBLOX:
-   • Cole o link do servidor no campo acima
-   • Clique em "Atualizar Link"
-   • Depois clique no botão verde para entrar
-
-3️⃣ PLANILHA:
-   • Sistema conectado automaticamente
-   • Clique em "Ver Reservas" para listar
-   • "Recarregar Planilha" atualiza dados
-
-✅ Sistema conectado à SUA planilha!
-ID: ${SPREADSHEET_ID}
-            `;
-            alert(msg);
+        function recarregar() {
+            mostrarStatus("🔄 Recarregando dados...", "info");
+            carregarPlanilha();
         }
         
-        function showCurrentLink() {
-            alert(`🔗 Link do Roblox atual:\n${robloxServerLink || "Nenhum link configurado"}`);
-        }
-        
-        function debugSheet() {
-            console.log("=== DEBUG DA PLANILHA ===");
-            console.log("ID:", SPREADSHEET_ID);
-            console.log("Total de reservas:", allReservations.length);
-            console.log("Reservas:", allReservations);
-            console.log("======================");
+        function mostrarStatus(texto, tipo) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.textContent = texto;
+            statusDiv.className = `status ${tipo}`;
             
-            showNotification(`Debug: ${allReservations.length} reservas carregadas`, "info");
-        }
-        
-        function clearData() {
-            if (confirm("Limpar todos os dados locais?")) {
-                localStorage.clear();
-                allReservations = [];
-                robloxServerLink = "";
-                document.getElementById('roblox-url').value = "";
-                document.getElementById('codes-list').style.display = 'none';
-                showNotification("Dados locais limpos", "success");
-                loadFromSpreadsheet();
+            if (tipo === 'info') {
+                setTimeout(() => {
+                    statusDiv.style.display = 'none';
+                }, 3000);
             }
         }
         
         // ============================================
-        // DADOS DE EXEMPLO
+        // 🧪 DADOS DE TESTE
         // ============================================
-        function getSampleData() {
-            return [
-                {
-                    code: "CHK-001",
-                    name: "João Silva",
-                    seat: "12A",
-                    email: "joao@email.com",
-                    date: "2024-01-20",
-                    status: "ativo",
-                    checkin: ""
-                },
-                {
-                    code: "CHK-002",
-                    name: "Maria Santos",
-                    seat: "7B",
-                    email: "maria@email.com",
-                    date: "2024-01-20",
-                    status: "ativo",
-                    checkin: ""
-                },
-                {
-                    code: "CHK-003",
-                    name: "Carlos Oliveira",
-                    seat: "22F",
-                    email: "carlos@email.com",
-                    date: "2024-01-20",
-                    status: "cancelado",
-                    checkin: ""
-                },
-                {
-                    code: "CHK-004",
-                    name: "Ana Costa",
-                    seat: "15C",
-                    email: "ana@email.com",
-                    date: "2024-01-20",
-                    status: "ativo",
-                    checkin: "CHECKED"
-                }
+        function usarDadosTeste() {
+            reservas = [
+                { codigo: "CHK-001", nome: "João Silva", poltrona: "12A", status: "ativo" },
+                { codigo: "CHK-002", nome: "Maria Santos", poltrona: "7B", status: "ativo" },
+                { codigo: "CHK-003", nome: "Carlos Oliveira", poltrona: "22F", status: "ativo" },
+                { codigo: "CHK-004", nome: "Ana Costa", poltrona: "15C", status: "cancelado" },
+                { codigo: "CHK-005", nome: "Pedro Almeida", poltrona: "8D", status: "ativo" }
             ];
+            
+            console.log("Usando dados de teste:", reservas);
         }
         
         // ============================================
-        // INICIALIZAÇÃO FINAL
+        // 📞 TESTE RÁPIDO
+        // ============================================
+        // Para testar no console do navegador:
+        // testeCheckin() - Testa com primeira reserva
+        window.testeCheckin = function() {
+            if (reservas.length > 0) {
+                document.getElementById('code').value = reservas[0].codigo;
+                setTimeout(fazerCheckin, 500);
+            }
+        };
+        
+        // ============================================
+        // 🎯 INICIALIZAÇÃO FINAL
         // ============================================
         console.log(`
-✈️ SISTEMA A350 + ROBLOX CARREGADO!
-📊 Conectado à sua planilha: ${SPREADSHEET_ID}
-
-Comandos disponíveis no console:
-• testSystem() - Testar sistema
-• debugSheet() - Ver dados da planilha
-• loadFromSpreadsheet() - Recarregar
-• showReservations() - Listar reservas
-
-Sistema pronto para uso! 🚀
+        ✈️ SISTEMA CHECK-IN A350
+        =========================
+        📊 Planilha: ${PLANILHA_ID}
+        🎯 4 colunas detectadas
+        🚀 Sistema pronto!
+        
+        Comandos úteis:
+        • fazerCheckin() - Fazer check-in
+        • atualizarRoblox() - Atualizar link
+        • verReservas() - Ver todas reservas
+        • recarregar() - Atualizar dados
+        • testeCheckin() - Teste rápido
         `);
     </script>
 </body>
